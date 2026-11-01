@@ -1,0 +1,21 @@
+# Compiled programs on macOS have no file extension, so ignore everything
+# by default and only track source code.
+*
+
+# Allow folders to be searched (their contents still follow these rules)
+!*/
+
+# Source code
+!*.cpp
+!*.h
+!*.hpp
+
+# Project files
+!.gitignore
+!README.md
+
+# Debug symbols are folders, so ignore them explicitly
+*.dSYM/
+
+# Editor settings
+.vscode/

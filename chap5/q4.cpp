@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include <string_view>
+
+int getAge(std::string_view name)
+{
+    std::cout << "Enter the age of " << name << ": ";
+    int age {};
+    std::cin >> age;
+    return age;
+}
+
+std::string getName(int person)
+{
+    std::cout << "Enter the name of person #" << person << ": ";
+    std::string name {};
+    std::getline(std::cin >> std::ws, name);
+    return name;
+}
+
+void printOlder(std::string_view name1, int age1, std::string_view name2, int age2)
+{
+    std::cout << name1 << " (age " << age1 << ") is older than " << name2 << " (age " << age2 << ")." << std::endl;
+}
+
+int main()
+{
+    std::string name1 { getName(1) };
+    int age1 = { getAge(name1) };
+    std::string name2 { getName(2) };
+    int age2 = {getAge(name2)};
+    
+    if (age1 > age2)
+        printOlder(name1, age1, name2, age2);
+    else if (age1 < age2)
+        printOlder(name2, age2, name1, age1);
+    else
+        std::cout << "Both people have the same age." << std::endl;
+}
